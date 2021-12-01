@@ -1,15 +1,20 @@
 import React, { useState, useEffect, Fragment } from 'react';
+//con use effecto podemos fetchear los productos enparte
 import { commerce } from './lib/commerce';
+//en esta instancia haremos todo, haremos toda la parte backend aqui
 import { Products, Navbar, Cart, Checkout} from './components';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-
+//HEMOS IMPORTADO cada uno de los componente sen fila//
 const App = () => {
     const [products, setProducts] = useState([]);
+//debemos fetchear los productos por eso agregamos product, y setproducts. son iguales una array vacío//
     const [cart, setCart] = useState({});
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
+    //nos retornara una promesa, por la cual debemos esperar. Podemos extraer la data de esa response
+    //la response es la data. La data son los productos
 
         setProducts(data);
     }
@@ -42,7 +47,8 @@ const App = () => {
 
         setCart(cart);
     }
-
+// no hay productos aun y no los llamamos, para eos creamos el useEffecto HOOK
+//Tiene un array vacío lo cual signfica que va a correr al incio del render
     useEffect(() => {
         fetchProducts();
         fetchCart();

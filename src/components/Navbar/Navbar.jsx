@@ -1,4 +1,5 @@
 import React from 'react';
+//cada una de estas representa algo , badge por ejemplo el numero de item, menu, etc//
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
 import { CallMissedSharp, ShoppingCart } from '@material-ui/icons';
 import {Link, useLocation} from 'react-router-dom';
